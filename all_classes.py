@@ -2,12 +2,12 @@ from typing import Any, Optional, List
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup, PageElement
 from httpx import Response
-from custom_exception import EmptyVacansiy
+from custom_exception import EmptyVacancy
 import httpx 
 
 
 
-class Vacansiy:
+class Vacanсy:
     "Класс описывает вакансию которую спарсил"
 
     def __init__(self,
@@ -169,7 +169,7 @@ class Vacansiy:
         """
 
         if self.name is None:
-            raise EmptyVacansiy(message="Вакансия пустая")
+            raise EmptyVacancy(message="Вакансия пустая")
         
         data = f"Вакансия: {self.name}\n" \
                f"Зарплата: {self.salary if self.salary is not None else 'Не указана'}\n" \

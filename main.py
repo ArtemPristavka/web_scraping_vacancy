@@ -1,8 +1,8 @@
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup, Tag
 from typing import List
-from all_classes import Vacansiy
-from custom_exception import EmptyVacansiy
+from all_classes import Vacanсy
+from custom_exception import EmptyVacancy
 from contextlib import suppress
 from httpx import Response
 from tqdm import tqdm
@@ -113,11 +113,11 @@ def main() -> None:
     # Выполняется парсинг страницы с прогресс баром
     for i_elem in tqdm(all_element):
         time.sleep(5)
-        pars_vacansiy = Vacansiy(url=i_elem["href"]) # type: ignore
+        pars_vacansiy = Vacanсy(url=i_elem["href"])
         pars_vacansiy()
 
         # Записываем результат в файл
-        with suppress(EmptyVacansiy):
+        with suppress(EmptyVacancy):
             with open("all_vacansii.txt", mode="a") as work_file:
                     work_file.write(pars_vacansiy.for_write())
              
